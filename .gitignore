@@ -42,6 +42,20 @@ htmlcov/
 MAVIS_Product_Documentation.pdf
 *.pdf
 
+# Data & Databases (Large data files, DuckDB, SQLite)
+data/lakehouse/*
+data/raw/*
+data/reports/*
+data/*.html
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.sqlite3
+!data/raw/.gitkeep
+!data/lakehouse/.gitkeep
+!data/reports/.gitkeep
+
 # IDE & OS
 .vscode/
 .idea/
