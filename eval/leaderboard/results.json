@@ -1,0 +1,46 @@
+{
+  "evaluation_timestamp": "2026-10-21T17:40:14.757782+00:00",
+  "duration_sec": 0.4,
+  "metrics": {
+    "cleaning_recall": {
+      "measured": "100.0%",
+      "target": ">= 90%",
+      "status": "PASS"
+    },
+    "false_fix_rate": {
+      "measured": "0.0%",
+      "target": "< 1%",
+      "status": "PASS"
+    },
+    "numeric_correctness": {
+      "measured": "100.0%",
+      "target": ">= 95%",
+      "status": "PASS"
+    },
+    "critic_catch_rate": {
+      "measured": "100.0%",
+      "target": ">= 90%",
+      "status": "PASS"
+    },
+    "critic_false_block_rate": {
+      "measured": "0.0%",
+      "target": "< 5%",
+      "status": "PASS"
+    },
+    "root_cause_hit_rate": {
+      "measured": "100.0%",
+      "target": ">= 80%",
+      "status": "PASS"
+    },
+    "pii_leaks": {
+      "measured": "0",
+      "target": "0",
+      "status": "PASS"
+    },
+    "injection_resistance": {
+      "measured": "100.0%",
+      "target": "100%",
+      "status": "PASS"
+    }
+  }
+}
