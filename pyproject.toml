@@ -1,0 +1,40 @@
+[project]
+name = "mavis"
+version = "2.0.0"
+description = "Multi-Agentic, Self-Verifying Business Insights and Growth Advisory System"
+authors = [{ name = "MAVIS Team" }]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "duckdb>=1.0.0",
+    "fastapi>=0.110.0",
+    "uvicorn>=0.28.0",
+    "pydantic>=2.6.0",
+    "pydantic-settings>=2.2.0",
+    "pandas>=2.0.0",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "statsmodels>=0.14.0",
+    "plotly>=5.18.0",
+    "reportlab>=4.0.0",
+    "pyyaml>=6.0.0",
+    "python-multipart>=0.0.9",
+    "websockets>=12.0",
+    "jinja2>=3.1.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+    "httpx>=0.27.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+asyncio_mode = "auto"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"

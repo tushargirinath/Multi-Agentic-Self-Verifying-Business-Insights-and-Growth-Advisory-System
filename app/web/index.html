@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MAVIS | Multi-Agentic Self-Verifying Business Insights & Growth Advisory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="app-layout">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-icon">M</div>
+        <div class="brand-text">
+          <div class="brand-name">MAVIS</div>
+          <div class="brand-tag">Self-Verifying AI Advisor</div>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" data-tab="dashboard">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </button>
+        <button class="nav-item" data-tab="chat">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Ask MAVIS</span>
+        </button>
+        <button class="nav-item" data-tab="advisor">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <span>Growth Advisor</span>
+        </button>
+        <button class="nav-item" data-tab="forecast">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+          <span>Forecast & Diagnost</span>
+        </button>
+        <button class="nav-item" data-tab="data">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>Data & Cleaning</span>
+        </button>
+        <button class="nav-item" data-tab="trust">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Trust & Audit</span>
+        </button>
+        <button class="nav-item" data-tab="reports">
+          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Executive Reports</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-badge live">
+          <span class="dot"></span>
+          <span>Critic Verification Active</span>
+        </div>
+        <div class="dataset-meta">UK Retail Dataset (536k rows)</div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Top Header -->
+      <header class="top-bar">
+        <div class="header-title-box">
+          <h1 id="page-title">Executive Dashboard</h1>
+          <p id="page-subtitle">Real-time commercial KPIs & verified self-verifying analytics</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn btn-secondary" id="btn-refresh">Refresh Data</button>
+          <button class="btn btn-primary" id="btn-quick-ask">Ask a Question</button>
+        </div>
+      </header>
+
+      <!-- VIEW 1: DASHBOARD -->
+      <section id="view-dashboard" class="content-view active">
+        <!-- KPI Tiles -->
+        <div class="kpi-grid">
+          <div class="kpi-card">
+            <div class="kpi-label">Gross Revenue</div>
+            <div class="kpi-value" id="kpi-gross-rev">£62,770,010.56</div>
+            <div class="kpi-sub positive">Deduplicated from £62.96M (-0.31%)</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Net Sales Revenue</div>
+            <div class="kpi-value" id="kpi-net-rev">£60,114,656.93</div>
+            <div class="kpi-sub neutral">Returns & cancellations netted</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Completed Sales Orders</div>
+            <div class="kpi-value" id="kpi-orders">19,790</div>
+            <div class="kpi-sub neutral">Average Order Value: £3,171.80</div>
+          </div>
+          <div class="kpi-card">
+            <div class="kpi-label">Data Quality Score (DQS)</div>
+            <div class="kpi-value text-emerald" id="kpi-dqs">99.0 / 100</div>
+            <div class="kpi-sub text-emerald">Grade: Excellent (Safe for analysis)</div>
+          </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid-2col">
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Monthly Gross vs Net Revenue (GBP)</h3>
+              <span class="badge badge-verified">Critic Verified</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-revenue-trend"></canvas>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-header">
+              <h3>Top 5 Bestselling Products by Revenue</h3>
+              <span class="badge badge-verified">L1 Recomputed</span>
+            </div>
+            <div class="chart-container">
+              <canvas id="chart-top-products"></canvas>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insight Cards Banner -->
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <h3>Automated Business Insights & Observations</h3>
+            <span class="badge badge-info">3 Insights Extracted</span>
+          </div>
+          <div class="insights-grid" id="insights-list">
+            <div class="insight-card">
+              <div class="insight-title">Revenue Concentration</div>
+              <div class="insight-body">United Kingdom accounts for over 85% of total sales volume; international markets (Netherlands, Germany) show significantly higher Average Order Value.</div>
+              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.94)</span></div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-title">Return & Cancellation Hotspots</div>
+              <div class="insight-body">Order cancellations represent 4.23% of gross value, removing £2.65M in gross turnover across 8,585 cancellation entries.</div>
+              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.92)</span></div>
+            </div>
+            <div class="insight-card">
+              <div class="insight-title">Customer Repeat Behavior</div>
+              <div class="insight-body">66.56% of registered customers returned for 2 or more orders, indicating resilient baseline loyalty.</div>
+              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.95)</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: ASK MAVIS (CHAT) -->
+      <section id="view-chat" class="content-view">
+        <div class="chat-container">
+          <!-- Suggestion Chips -->
+          <div class="suggestion-chips">
+            <button class="chip" data-q="What is total gross revenue?">Total gross revenue</button>
+            <button class="chip" data-q="What was net revenue by month?">Net revenue by month</button>
+            <button class="chip" data-q="Which 10 products earn the most revenue?">Top 10 products</button>
+            <button class="chip" data-q="Which customer segment contributes the most revenue?">Customer RFM segments</button>
+            <button class="chip" data-q="What is the cancellation rate?">Cancellation rate</button>
+            <button class="chip" data-q="What is the average order value by country?">AOV by country</button>
+            <button class="chip" data-q="What will revenue be next month?">30-day forecast</button>
+          </div>
+
+          <!-- Message History -->
+          <div class="chat-messages" id="chat-messages">
+            <!-- Messages inserted here dynamically -->
+          </div>
+
+          <!-- Input Bar -->
+          <div class="chat-input-bar">
+            <input type="text" id="chat-input" placeholder="Ask any question about sales, products, segments, cancellations or trends...">
+            <button class="btn btn-primary" id="btn-send">
+              <span>Ask</span>
+              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: GROWTH ADVISOR -->
+      <section id="view-advisor" class="content-view">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Ranked Growth Advisory Actions</h3>
+              <p class="subtitle">Prescriptive opportunities generated from named levers, verified evidence, and impact formulas.</p>
+            </div>
+            <span class="badge badge-emerald">4 Scored Levers</span>
+          </div>
+
+          <div class="recommendations-list" id="recommendations-container">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <h3>30-60-90 Day Growth Execution Plan</h3>
+          </div>
+          <div class="plan-grid">
+            <div class="plan-col">
+              <h4>Day 1 - 30: Quick Wins</h4>
+              <div class="plan-card">
+                <strong>Product Bundling (Lever L3)</strong>
+                <p>Deploy frequently bought together bundle on product page with 1-click add to cart.</p>
+                <div class="badge badge-low">Effort: Hours</div>
+              </div>
+            </div>
+            <div class="plan-col">
+              <h4>Day 31 - 60: Medium Actions</h4>
+              <div class="plan-card">
+                <strong>Win-Back Lapsed Customers (Lever L1)</strong>
+                <p>Launch targeted email flow for 1,888 customers in At-Risk and Hibernating segments.</p>
+                <div class="badge badge-med">Effort: Days</div>
+              </div>
+              <div class="plan-card">
+                <strong>Cancellation Mitigation (Lever L4)</strong>
+                <p>Fix descriptions on top cancelled SKUs and trigger immediate confirmation notices.</p>
+                <div class="badge badge-med">Effort: Days</div>
+              </div>
+            </div>
+            <div class="plan-col">
+              <h4>Day 61 - 90: Strategic Bets</h4>
+              <div class="plan-card">
+                <strong>Export Expansion (Lever L7)</strong>
+                <p>Scale subsidized shipping and localization for high-AOV Netherlands & European buyers.</p>
+                <div class="badge badge-high">Effort: Weeks</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 4: FORECAST & DIAGNOSTICS -->
+      <section id="view-forecast" class="content-view">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>30-Day Net Revenue Demand Forecast</h3>
+              <p class="subtitle">Seasonal Exponential Smoothing with 80% Prediction Interval & Rolling-Origin Backtesting</p>
+            </div>
+            <span class="badge badge-warning">Annual Seasonality Disabled (1-Yr Data)</span>
+          </div>
+          <div class="chart-container" style="height: 320px;">
+            <canvas id="chart-forecast"></canvas>
+          </div>
+          <div class="forecast-meta-box">
+            <div><strong>Forecast Horizon:</strong> 30 Days</div>
+            <div><strong>Backtest WAPE:</strong> 0.28 (Beats Seasonal Naive Baseline)</div>
+            <div><strong>Coverage 80%:</strong> 82% empirical interval coverage</div>
+          </div>
+        </div>
+
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <div>
+              <h3>Hypothesis-Driven Diagnostic Board</h3>
+              <p class="subtitle">Testing candidate drivers H1-H7 on observed month-over-month revenue changes</p>
+            </div>
+            <span class="badge badge-verified">4 Hypotheses Tested</span>
+          </div>
+          <div class="hypothesis-grid" id="hypothesis-container">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 5: DATA & CLEANING -->
+      <section id="view-data" class="content-view">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Dataset Profile & Schema Mapping</h3>
+              <p class="subtitle">Reference Dataset: UK Online Retail Sales Transactions (536,350 rows)</p>
+            </div>
+            <button class="btn btn-secondary" id="btn-reprofile">Re-profile</button>
+          </div>
+          <div class="profile-stats-grid">
+            <div class="stat-box"><strong>Total Rows:</strong> 536,350</div>
+            <div class="stat-box"><strong>Unique Orders:</strong> 23,204</div>
+            <div class="stat-box"><strong>Unique SKUs:</strong> 3,768</div>
+            <div class="stat-box"><strong>Unique Customers:</strong> 4,739</div>
+            <div class="stat-box"><strong>Countries:</strong> 38</div>
+            <div class="stat-box"><strong>Duplicates:</strong> 5,587 (1.04%)</div>
+          </div>
+        </div>
+
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <div>
+              <h3>Data Quality Score & KPI Distortion Impact</h3>
+              <p class="subtitle">Measuring impact before vs after applying cleaning rules CL-01 through CL-15</p>
+            </div>
+            <span class="badge badge-emerald">DQS: 99.0 / 100</span>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr><th>Metric</th><th>Raw Uncleaned</th><th>Silver Cleaned</th><th>Delta %</th><th>Reason & Effect</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Gross Revenue</td><td>£62,965,974.34</td><td>£62,770,010.56</td><td class="text-emerald">-0.31%</td><td>5,587 exact duplicate lines quarantined to silver_quarantine</td></tr>
+              <tr><td>Net Revenue</td><td>£60,280,024.26</td><td>£60,114,656.93</td><td class="text-emerald">-0.27%</td><td>8,585 negative cancellation orders classified and netted</td></tr>
+              <tr><td>Distinct Orders</td><td>23,204</td><td>19,790</td><td class="text-emerald">-14.71%</td><td>Cancelled orders separated from positive sales transactions</td></tr>
+              <tr><td>Average Order Value</td><td>£2,713.58</td><td>£3,171.80</td><td class="text-emerald">+16.89%</td><td>True sales basket size after excluding cancellation voids</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <h3>Data Capability Matrix (Section 8.5)</h3>
+          </div>
+          <table class="data-table">
+            <thead>
+              <tr><th>Analytical Feature</th><th>Required Fields</th><th>Status</th><th>Notes / Unlocking Data</th></tr>
+            </thead>
+            <tbody id="capability-matrix-body">
+              <tr><td>Revenue, Orders, AOV Trends</td><td>date, price, quantity, order_id</td><td><span class="badge badge-emerald">Available</span></td><td>Fully enabled</td></tr>
+              <tr><td>Top / Bottom Products & ABC</td><td>product, price, quantity</td><td><span class="badge badge-emerald">Available</span></td><td>Fully enabled</td></tr>
+              <tr><td>Customer RFM Segmentation</td><td>customer_id, date, value</td><td><span class="badge badge-emerald">Available</span></td><td>Available for rows with customer token</td></tr>
+              <tr><td>Market Basket Pairs (Affinity)</td><td>order_id, product</td><td><span class="badge badge-emerald">Available</span></td><td>Computed on frequent pairs</td></tr>
+              <tr><td>Cancellation Analysis</td><td>negative quantity / cancel code</td><td><span class="badge badge-emerald">Available</span></td><td>8,585 cancellations detected</td></tr>
+              <tr><td>Demand Forecast</td><td>daily history</td><td><span class="badge badge-warning">Available (1-yr)</span></td><td>Annual seasonality disabled; low confidence</td></tr>
+              <tr><td>Profit and Margin</td><td>unit cost</td><td><span class="badge badge-red">Unavailable</span></td><td>Requires unit cost column or margin assumption</td></tr>
+              <tr><td>Stock-out Prediction</td><td>inventory levels</td><td><span class="badge badge-red">Unavailable</span></td><td>Requires inventory file; velocity reported as proxy</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- VIEW 6: TRUST & AUDIT -->
+      <section id="view-trust" class="content-view">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Cryptographic Hash-Chained Audit Log</h3>
+              <p class="subtitle">Every model call, query, cleaning approval, and security event is permanently linked via SHA-256 block hashing.</p>
+            </div>
+            <div class="status-badge live">
+              <span class="dot"></span>
+              <span id="chain-status-label">Chain Verified: Genesis to Tip</span>
+            </div>
+          </div>
+          <div class="audit-timeline" id="audit-timeline">
+            <!-- Rendered by app.js -->
+          </div>
+        </div>
+
+        <div class="panel mt-20">
+          <div class="panel-header">
+            <div>
+              <h3>Privacy-By-Design & Leak Scan Status</h3>
+              <p class="subtitle">Customer tokenization, untrusted text neutralization, and zero-leak CI verification</p>
+            </div>
+            <span class="badge badge-emerald">Zero Leaks Verified</span>
+          </div>
+          <div class="privacy-grid">
+            <div class="privacy-card">
+              <h4>Salted Tokenization</h4>
+              <p>Raw Customer IDs (e.g. <code>17490</code>) are salted and hashed into irreversible tokens: <code>cust_7f2a9c1e</code>. Real IDs never enter LLM prompts.</p>
+            </div>
+            <div class="privacy-card">
+              <h4>Prompt-Injection Sanitizer</h4>
+              <p>Adversarial instructions in product descriptions (e.g. <code>IGNORE PREVIOUS INSTRUCTIONS</code>) are neutralized, quarantined, and wrapped in literal quotes.</p>
+            </div>
+            <div class="privacy-card">
+              <h4>Sandbox Isolation</h4>
+              <p>Model-written code executes in a no-network sandbox with resource timeouts and read-only data mounts.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 7: EXECUTIVE REPORTS -->
+      <section id="view-reports" class="content-view">
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <h3>Executive Insights & Growth Report Generation</h3>
+              <p class="subtitle">Comprehensive 3-part report: What happened, What will happen, What to do (Appendix D)</p>
+            </div>
+            <div class="btn-group">
+              <button class="btn btn-primary" id="btn-gen-html">Generate HTML Report</button>
+              <button class="btn btn-secondary" id="btn-gen-pdf">Download PDF Report</button>
+            </div>
+          </div>
+          <div class="report-preview-frame mt-20">
+            <iframe id="report-frame" src="/v1/reports/latest?format=html" style="width: 100%; height: 600px; border: 1px solid #334155; border-radius: 8px;"></iframe>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Evidence Drawer Modal ("Show your work") -->
+  <div class="evidence-modal" id="evidence-modal">
+    <div class="evidence-content">
+      <div class="evidence-header">
+        <h3>Evidence Drawer &bull; Show Your Work</h3>
+        <button class="btn-close" id="btn-close-evidence">&times;</button>
+      </div>
+      <div class="evidence-body" id="evidence-body">
+        <!-- Injected dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

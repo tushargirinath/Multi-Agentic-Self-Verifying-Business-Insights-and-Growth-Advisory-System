@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  mavis-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    environment:
+      - MAVIS_DATA_DIR=/app/data/lakehouse
+      - MAVIS_RAW_DATA_PATH=/app/data/raw/sales_transactions.csv
+      - MAVIS_DB_URL=sqlite:////app/data/mavis_app.db
+      - MAVIS_TOKEN_SALT=mavis_secret_salt_2026_salt_token
+      - MAVIS_CRITIC_TOLERANCE=0.005
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
+
+  mavis-sandbox:
+    image: python:3.11-slim
+    network_mode: none
+    read_only: true
+    mem_limit: 1g
+    cpus: 1.0
+    security_opt:
+      - no-new-privileges:true
+    tmpfs:
+      - /tmp:rw,size=256m
+    volumes:
+      - ./data/lakehouse:/data:ro

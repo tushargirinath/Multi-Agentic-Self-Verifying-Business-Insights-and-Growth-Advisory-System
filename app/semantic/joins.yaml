@@ -1,0 +1,22 @@
+version: "2.0"
+tables:
+  fact_order_lines:
+    description: "Line item level transactions (Silver layer)"
+    primary_key: ["dataset_id", "order_id", "line_no"]
+    foreign_keys:
+      sku: "dim_product.sku"
+      customer_token: "dim_customer.customer_token"
+      country: "dim_country.name"
+      order_date: "dim_date.date"
+
+  dim_product:
+    description: "Product dimension with canonical names, mode attributes, and lifetime stats"
+    primary_key: ["sku"]
+
+  dim_customer:
+    description: "Customer dimension with RFM scores, lifetime spend, order frequency and segment"
+    primary_key: ["customer_token"]
+
+  dim_date:
+    description: "Calendar dimension with week, month, quarter, day of week, and holiday flags"
+    primary_key: ["date"]
