@@ -581,7 +581,7 @@ function initReportActions() {
 
   if (btnHtml) {
     btnHtml.addEventListener('click', async () => {
-      showToast('Generating executive HTML report...', 'info');
+      showToast('Generating fresh executive report...', 'info');
       try {
         const res = await fetch('/v1/reports', {
           method: 'POST',
@@ -590,11 +590,11 @@ function initReportActions() {
         });
         const d = await res.json();
         if (frame && d.download_url) {
-          frame.src = d.download_url;
+          frame.src = d.download_url + '&t=' + Date.now();
         }
-        showToast('HTML report generated successfully!', 'success');
+        showToast('Executive report generated and rendered on screen!', 'success');
       } catch (e) {
-        showToast('Failed to generate HTML report.', 'error');
+        showToast('Failed to generate report.', 'error');
       }
     });
   }
@@ -610,7 +610,7 @@ function initReportActions() {
         });
         const d = await res.json();
         if (d.download_url) {
-          window.open(d.download_url, '_blank');
+          window.open(d.download_url + '&download=true', '_blank');
         }
         showToast('PDF downloaded successfully!', 'success');
       } catch (e) {

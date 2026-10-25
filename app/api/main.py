@@ -355,8 +355,8 @@ def create_report(req: ReportRequest):
 
 
 @app.get("/v1/reports/{report_id}")
-def download_report(report_id: str, format: str = "html"):
-    """Download generated HTML or PDF report with cache-busting headers."""
+def download_report(report_id: str, format: str = "html", download: bool = False):
+    """Serve inline HTML report for embedded viewing or file attachment when download=True."""
     ext = "pdf" if format.lower() == "pdf" else "html"
     file_path = Path("data/reports") / f"{report_id}.{ext}"
     
@@ -368,8 +368,15 @@ def download_report(report_id: str, format: str = "html"):
         else:
             report_agent.render_html_report(rep_data, str(file_path))
 
-    media_type = "application/pdf" if ext == "pdf" else "text/html"
-    resp = FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
+    media_type = "application/pdf" if ext == "pdf" else "text/html; charset=utf-8"
+    
+    # Only force file download attachment if explicitly requested via download=True
+    if download:
+        resp = FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
+    else:
+        resp = FileResponse(path=str(file_path), media_type=media_type)
+        resp.headers["Content-Disposition"] = "inline"
+
     resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     return resp
 
