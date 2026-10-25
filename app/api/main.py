@@ -23,6 +23,7 @@ from app.agents.advisor import AdvisorAgent
 from app.agents.report import ReportAgent
 from app.privacy.audit import audit_logger
 from app.data.db import app_db
+from app.llm.client import llm_client
 
 
 app = FastAPI(
@@ -89,6 +90,11 @@ class ReportRequest(BaseModel):
     format: str = "html"  # html or pdf
 
 
+class ModelSelectRequest(BaseModel):
+    provider: str = "openrouter"
+    model: str
+
+
 # -----------------------------------------------------------------------------
 # Endpoints (Section 22.2)
 # -----------------------------------------------------------------------------
@@ -106,6 +112,27 @@ def serve_index():
 @app.get("/health")
 def health_check():
     return {"status": "ok", "system": "MAVIS", "version": "2.0.0", "time": "2026-10-21"}
+
+
+@app.get("/v1/models")
+def get_available_models():
+    """Return available LLM providers, free models, and active model status."""
+    return llm_client.list_available_models()
+
+
+@app.post("/v1/models/select")
+def select_model(req: ModelSelectRequest):
+    """Switch active LLM provider or model."""
+    llm_client.set_model(req.model, req.provider)
+    audit_logger.log_event("user", "model_changed", {"provider": req.provider, "model": req.model})
+    return {"status": "updated", "provider": llm_client.provider, "active_model": llm_client.active_model}
+
+
+@app.api_route("/v1/models/test", methods=["GET", "POST"])
+def test_model_connection():
+    """Execute a rapid test completion with active model and return latency."""
+    res = llm_client.generate("Respond with: MAVIS Cognitive Gateway Active", max_tokens=25)
+    return res
 
 
 @app.post("/v1/datasets", status_code=201)

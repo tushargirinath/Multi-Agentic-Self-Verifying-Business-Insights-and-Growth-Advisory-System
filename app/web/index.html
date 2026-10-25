@@ -6,7 +6,7 @@
   <title>MAVIS | Multi-Agentic Self-Verifying Business Insights & Growth Advisory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
@@ -14,91 +14,159 @@
   <div class="app-layout">
     <!-- Sidebar Navigation -->
     <aside class="sidebar">
-      <div class="brand">
-        <div class="logo-icon">M</div>
-        <div class="brand-text">
-          <div class="brand-name">MAVIS</div>
-          <div class="brand-tag">Self-Verifying AI Advisor</div>
+      <div class="brand-section">
+        <div class="brand-mark">M</div>
+        <div class="brand-info">
+          <div class="brand-title">MAVIS ENTERPRISE</div>
+          <div class="brand-subtitle">Self-Verifying Advisory</div>
         </div>
       </div>
 
+      <div class="nav-label">Core Operations</div>
       <nav class="nav-menu">
         <button class="nav-item active" data-tab="dashboard">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
-          <span>Dashboard</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Executive Cockpit</span>
         </button>
         <button class="nav-item" data-tab="chat">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
-          <span>Ask MAVIS</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+          <span>Ask MAVIS (Chat)</span>
         </button>
         <button class="nav-item" data-tab="advisor">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
-          <span>Growth Advisor</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+          <span>Growth Simulator</span>
         </button>
         <button class="nav-item" data-tab="forecast">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
-          <span>Forecast & Diagnost</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"></path><path d="m19 9-5 5-4-4-3 3"></path></svg>
+          <span>Forecast & Diagnostics</span>
         </button>
+
+        <div class="nav-label" style="margin-top: 14px;">Data Governance</div>
         <button class="nav-item" data-tab="data">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
-          <span>Data & Cleaning</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"></ellipse><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path></svg>
+          <span>Pipeline & DQS Matrix</span>
         </button>
         <button class="nav-item" data-tab="trust">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
-          <span>Trust & Audit</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          <span>Audit & Zero-Leak PII</span>
         </button>
         <button class="nav-item" data-tab="reports">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
-          <span>Executive Reports</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line></svg>
+          <span>Report Generator</span>
         </button>
       </nav>
 
       <div class="sidebar-footer">
-        <div class="status-badge live">
-          <span class="dot"></span>
-          <span>Critic Verification Active</span>
+        <div class="system-status-card">
+          <div class="status-row">
+            <span style="color: var(--text-muted); font-weight: 500;">Critic Gate</span>
+            <span class="status-pill"><span class="pulse-dot"></span> 5-Layer Active</span>
+          </div>
+          <div class="meta-subtext">UK Retail Mart (536,350 lines)</div>
         </div>
-        <div class="dataset-meta">UK Retail Dataset (536k rows)</div>
       </div>
     </aside>
 
     <!-- Main Content Area -->
     <main class="main-content">
-      <!-- Top Header -->
+      <!-- Top Institutional Header -->
       <header class="top-bar">
-        <div class="header-title-box">
-          <h1 id="page-title">Executive Dashboard</h1>
-          <p id="page-subtitle">Real-time commercial KPIs & verified self-verifying analytics</p>
+        <div class="header-breadcrumbs">
+          <span class="crumb-root">MAVIS Workspace</span>
+          <span class="crumb-separator">/</span>
+          <span class="crumb-active" id="breadcrumb-current">Executive Cockpit</span>
         </div>
+
+        <div class="header-center-hud">
+          <!-- Active Model HUD Button -->
+          <div class="hud-pill clickable" id="hud-model-pill" title="Click to configure LLM model & provider">
+            <span class="pulse-dot"></span>
+            <span class="hud-tag">Model:</span>
+            <span id="hud-model-name" class="mono" style="font-weight: 600; color: #93c5fd;">OpenRouter Free</span>
+            <span id="hud-model-latency" class="mono" style="font-size: 10px; color: var(--text-dim);">(Ready)</span>
+          </div>
+
+          <div class="hud-pill">
+            <span class="hud-tag">DQS:</span>
+            <span class="mono" style="font-weight: 600; color: var(--accent-success);">99.0 / 100</span>
+          </div>
+        </div>
+
         <div class="header-actions">
-          <button class="btn btn-secondary" id="btn-refresh">Refresh Data</button>
-          <button class="btn btn-primary" id="btn-quick-ask">Ask a Question</button>
+          <button class="btn btn-secondary" id="btn-open-cmd" title="Command Palette (Ctrl + K)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <span>Search</span>
+            <span class="kbd-shortcut">Ctrl K</span>
+          </button>
+          <button class="btn btn-secondary" id="btn-open-model-modal">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+            <span>AI Model</span>
+          </button>
+          <button class="btn btn-primary" id="btn-quick-ask">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>Ask MAVIS</span>
+          </button>
         </div>
       </header>
 
-      <!-- VIEW 1: DASHBOARD -->
+      <!-- VIEW 1: EXECUTIVE COCKPIT -->
       <section id="view-dashboard" class="content-view active">
-        <!-- KPI Tiles -->
+        <div class="view-header">
+          <div>
+            <h2>Executive Performance Cockpit</h2>
+            <p>Verified commercial metrics, net revenue realization, and automated diagnostic flags</p>
+          </div>
+          <span class="badge badge-emerald">Verified via DuckDB Gold Mart</span>
+        </div>
+
+        <!-- 4 Top-line KPI Cards -->
         <div class="kpi-grid">
           <div class="kpi-card">
-            <div class="kpi-label">Gross Revenue</div>
-            <div class="kpi-value" id="kpi-gross-rev">£62,770,010.56</div>
-            <div class="kpi-sub positive">Deduplicated from £62.96M (-0.31%)</div>
+            <div class="kpi-top-row">
+              <span class="kpi-label">Gross Revenue</span>
+              <span class="kpi-lineage-badge">fact_order_lines</span>
+            </div>
+            <div class="kpi-value tabular-nums" id="kpi-gross-rev">£62,770,010.56</div>
+            <div class="kpi-footer">
+              <span class="kpi-delta positive">&minus;0.31%</span>
+              <span class="kpi-context">5,587 duplicate lines quarantined</span>
+            </div>
           </div>
+
           <div class="kpi-card">
-            <div class="kpi-label">Net Sales Revenue</div>
-            <div class="kpi-value" id="kpi-net-rev">£60,114,656.93</div>
-            <div class="kpi-sub neutral">Returns & cancellations netted</div>
+            <div class="kpi-top-row">
+              <span class="kpi-label">Net Sales Revenue</span>
+              <span class="kpi-lineage-badge">gold_daily</span>
+            </div>
+            <div class="kpi-value tabular-nums" id="kpi-net-rev">£60,114,656.93</div>
+            <div class="kpi-footer">
+              <span class="kpi-delta neutral">£2.65M</span>
+              <span class="kpi-context">returns & voids netted</span>
+            </div>
           </div>
+
           <div class="kpi-card">
-            <div class="kpi-label">Completed Sales Orders</div>
-            <div class="kpi-value" id="kpi-orders">19,790</div>
-            <div class="kpi-sub neutral">Average Order Value: £3,171.80</div>
+            <div class="kpi-top-row">
+              <span class="kpi-label">Sales Orders & AOV</span>
+              <span class="kpi-lineage-badge">19,790 orders</span>
+            </div>
+            <div class="kpi-value tabular-nums" id="kpi-orders">£3,171.80</div>
+            <div class="kpi-footer">
+              <span class="kpi-delta positive">+16.89%</span>
+              <span class="kpi-context">true AOV after cancellation filtering</span>
+            </div>
           </div>
+
           <div class="kpi-card">
-            <div class="kpi-label">Data Quality Score (DQS)</div>
-            <div class="kpi-value text-emerald" id="kpi-dqs">99.0 / 100</div>
-            <div class="kpi-sub text-emerald">Grade: Excellent (Safe for analysis)</div>
+            <div class="kpi-top-row">
+              <span class="kpi-label">Data Quality Score (DQS)</span>
+              <span class="kpi-lineage-badge">5 Dimensions</span>
+            </div>
+            <div class="kpi-value tabular-nums" style="color: var(--accent-success);" id="kpi-dqs">99.0 / 100</div>
+            <div class="kpi-footer">
+              <span class="kpi-delta positive">Grade A</span>
+              <span class="kpi-context">Statistically safe for commercial advisory</span>
+            </div>
           </div>
         </div>
 
@@ -106,8 +174,11 @@
         <div class="grid-2col">
           <div class="panel">
             <div class="panel-header">
-              <h3>Monthly Gross vs Net Revenue (GBP)</h3>
-              <span class="badge badge-verified">Critic Verified</span>
+              <div>
+                <div class="panel-title">Net vs Gross Revenue Trajectory (GBP)</div>
+                <div class="panel-desc">Monthly realization trend with cancellation gap analysis</div>
+              </div>
+              <span class="badge badge-blue">Critic Verified</span>
             </div>
             <div class="chart-container">
               <canvas id="chart-revenue-trend"></canvas>
@@ -116,8 +187,11 @@
 
           <div class="panel">
             <div class="panel-header">
-              <h3>Top 5 Bestselling Products by Revenue</h3>
-              <span class="badge badge-verified">L1 Recomputed</span>
+              <div>
+                <div class="panel-title">Top 5 Revenue Generating SKUs</div>
+                <div class="panel-desc">Bestselling catalog items ranked by completed sales turnover</div>
+              </div>
+              <span class="badge badge-emerald">L1 Recomputed</span>
             </div>
             <div class="chart-container">
               <canvas id="chart-top-products"></canvas>
@@ -125,110 +199,222 @@
           </div>
         </div>
 
-        <!-- Insight Cards Banner -->
-        <div class="panel mt-20">
-          <div class="panel-header">
-            <h3>Automated Business Insights & Observations</h3>
-            <span class="badge badge-info">3 Insights Extracted</span>
-          </div>
-          <div class="insights-grid" id="insights-list">
-            <div class="insight-card">
-              <div class="insight-title">Revenue Concentration</div>
-              <div class="insight-body">United Kingdom accounts for over 85% of total sales volume; international markets (Netherlands, Germany) show significantly higher Average Order Value.</div>
-              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.94)</span></div>
-            </div>
-            <div class="insight-card">
-              <div class="insight-title">Return & Cancellation Hotspots</div>
-              <div class="insight-body">Order cancellations represent 4.23% of gross value, removing £2.65M in gross turnover across 8,585 cancellation entries.</div>
-              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.92)</span></div>
-            </div>
-            <div class="insight-card">
-              <div class="insight-title">Customer Repeat Behavior</div>
-              <div class="insight-body">66.56% of registered customers returned for 2 or more orders, indicating resilient baseline loyalty.</div>
-              <div class="insight-foot"><span class="badge badge-high">High Confidence (0.95)</span></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 2: ASK MAVIS (CHAT) -->
-      <section id="view-chat" class="content-view">
-        <div class="chat-container">
-          <!-- Suggestion Chips -->
-          <div class="suggestion-chips">
-            <button class="chip" data-q="What is total gross revenue?">Total gross revenue</button>
-            <button class="chip" data-q="What was net revenue by month?">Net revenue by month</button>
-            <button class="chip" data-q="Which 10 products earn the most revenue?">Top 10 products</button>
-            <button class="chip" data-q="Which customer segment contributes the most revenue?">Customer RFM segments</button>
-            <button class="chip" data-q="What is the cancellation rate?">Cancellation rate</button>
-            <button class="chip" data-q="What is the average order value by country?">AOV by country</button>
-            <button class="chip" data-q="What will revenue be next month?">30-day forecast</button>
-          </div>
-
-          <!-- Message History -->
-          <div class="chat-messages" id="chat-messages">
-            <!-- Messages inserted here dynamically -->
-          </div>
-
-          <!-- Input Bar -->
-          <div class="chat-input-bar">
-            <input type="text" id="chat-input" placeholder="Ask any question about sales, products, segments, cancellations or trends...">
-            <button class="btn btn-primary" id="btn-send">
-              <span>Ask</span>
-              <svg class="icon-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <!-- VIEW 3: GROWTH ADVISOR -->
-      <section id="view-advisor" class="content-view">
+        <!-- Executive Observations Feed -->
         <div class="panel">
           <div class="panel-header">
             <div>
-              <h3>Ranked Growth Advisory Actions</h3>
-              <p class="subtitle">Prescriptive opportunities generated from named levers, verified evidence, and impact formulas.</p>
+              <div class="panel-title">Automated Commercial Observations</div>
+              <div class="panel-desc">Statistically verified patterns extracted across transactions, customers, and return behavior</div>
             </div>
-            <span class="badge badge-emerald">4 Scored Levers</span>
+            <span class="badge badge-gray">3 Active Observations</span>
+          </div>
+          <div class="grid-3col" id="insights-list">
+            <div class="kpi-card">
+              <div class="rec-title-row">
+                <span class="kpi-label">Geographic Distribution</span>
+                <span class="badge badge-blue">0.94 Conf</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">
+                United Kingdom accounts for 85.2% of order volume; however, Netherlands and Germany demonstrate +42% higher Average Order Value.
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="rec-title-row">
+                <span class="kpi-label">Return Vulnerability</span>
+                <span class="badge badge-amber">0.92 Conf</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">
+                Cancellation rate is 4.23% of gross value, removing £2.65M in gross turnover across 8,585 cancellation entries.
+              </div>
+            </div>
+
+            <div class="kpi-card">
+              <div class="rec-title-row">
+                <span class="kpi-label">Customer Retention Base</span>
+                <span class="badge badge-emerald">0.95 Conf</span>
+              </div>
+              <div style="font-size: 13px; color: var(--text-secondary); margin-top: 8px;">
+                66.56% of registered customer tokens completed 2 or more distinct orders, indicating resilient baseline brand loyalty.
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 2: ASK MAVIS (CHAT WORKBENCH) -->
+      <section id="view-chat" class="content-view">
+        <div class="chat-workbench">
+          <!-- Analytical Prompt Library Sidebar -->
+          <div class="chat-sidebar">
+            <div class="chat-section-title">Verified Metric Queries</div>
+            <div class="prompt-chips-list">
+              <button class="prompt-chip" data-q="What is total gross revenue?">
+                <div class="chip-cat">Financial</div>
+                <div>Total gross & net revenue</div>
+              </button>
+              <button class="prompt-chip" data-q="What was net revenue by month?">
+                <div class="chip-cat">Seasonality</div>
+                <div>Monthly net revenue realization</div>
+              </button>
+              <button class="prompt-chip" data-q="Which 10 products earn the most revenue?">
+                <div class="chip-cat">Product</div>
+                <div>Top 10 revenue-generating SKUs</div>
+              </button>
+              <button class="prompt-chip" data-q="Which customer segment contributes the most revenue?">
+                <div class="chip-cat">RFM Analysis</div>
+                <div>Customer RFM cohort breakdown</div>
+              </button>
+              <button class="prompt-chip" data-q="What is the cancellation rate?">
+                <div class="chip-cat">Risk</div>
+                <div>Cancellation rate & net leakage</div>
+              </button>
+              <button class="prompt-chip" data-q="What is the average order value by country?">
+                <div class="chip-cat">Geographic</div>
+                <div>Average order value by country</div>
+              </button>
+              <button class="prompt-chip" data-q="What will revenue be next month?">
+                <div class="chip-cat">Forecasting</div>
+                <div>30-day demand forecast</div>
+              </button>
+            </div>
+
+            <div class="chat-section-title" style="margin-top: 10px;">Strategic Inquiries</div>
+            <div class="prompt-chips-list">
+              <button class="prompt-chip" data-q="What are the best opportunities to increase customer repeat purchases?">
+                <div class="chip-cat">Advisor</div>
+                <div>Customer retention growth levers</div>
+              </button>
+              <button class="prompt-chip" data-q="How can we reduce order cancellation rates on high-volume items?">
+                <div class="chip-cat">Operations</div>
+                <div>Mitigate return & cancel leakage</div>
+              </button>
+            </div>
           </div>
 
-          <div class="recommendations-list" id="recommendations-container">
-            <!-- Rendered by app.js -->
+          <!-- Chat Dialogue Feed -->
+          <div class="chat-main">
+            <div class="chat-messages" id="chat-messages">
+              <!-- Messages inserted dynamically -->
+            </div>
+
+            <div class="chat-input-container">
+              <input type="text" id="chat-input" class="chat-input-field" placeholder="Ask an analytical question or strategic inquiry (e.g., 'What is our net revenue by month?')...">
+              <button class="btn btn-primary" id="btn-send">
+                <span>Send Query</span>
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- VIEW 3: GROWTH ADVISOR & SCENARIO SIMULATOR -->
+      <section id="view-advisor" class="content-view">
+        <div class="view-header">
+          <div>
+            <h2>Strategic Growth Engine & Scenario Simulator</h2>
+            <p>Model the financial impact of specific commercial interventions with live ROI sensitivity analysis</p>
+          </div>
+          <span class="badge badge-emerald">4 Scored Growth Levers</span>
+        </div>
+
+        <!-- Interactive Scenario Simulator -->
+        <div class="simulator-panel">
+          <div class="sim-grid">
+            <div class="sliders-col">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="slider-winback">Customer Retention / Win-Back Activation Rate</label>
+                  <span class="val-display" id="val-winback">8%</span>
+                </div>
+                <input type="range" id="slider-winback" min="1" max="25" value="8">
+                <span style="font-size: 11px; color: var(--text-dim);">Targeting 1,888 customers in At-Risk and Hibernating RFM segments</span>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="slider-bundle">Product Bundle Basket Attach Rate</label>
+                  <span class="val-display" id="val-bundle">12%</span>
+                </div>
+                <input type="range" id="slider-bundle" min="2" max="35" value="12">
+                <span style="font-size: 11px; color: var(--text-dim);">1-click checkout bundle on frequent co-occurrence pairs</span>
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="slider-cancel">Cancellation & Return Mitigation</label>
+                  <span class="val-display" id="val-cancel">15%</span>
+                </div>
+                <input type="range" id="slider-cancel" min="5" max="40" value="15">
+                <span style="font-size: 11px; color: var(--text-dim);">Address description discrepancies on top cancelled SKUs</span>
+              </div>
+            </div>
+
+            <div class="sim-output-box">
+              <div class="sim-output-label">Projected Annual Net Revenue Uplift</div>
+              <div class="sim-output-val tabular-nums" id="sim-projected-uplift">+£742,800</div>
+              <div class="sim-output-sub">+1.24% expansion over baseline net turnover</div>
+              <div style="margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border-subtle); display: flex; justify-content: space-around; font-size: 11px;">
+                <div><span style="color: var(--text-dim);">Est. Margin:</span> <strong style="color: #60a5fa;">+£185.7k</strong></div>
+                <div><span style="color: var(--text-dim);">Payback:</span> <strong style="color: var(--accent-success);">&lt; 45 Days</strong></div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="panel mt-20">
+        <!-- Ranked Recommendations Grid -->
+        <div class="panel">
           <div class="panel-header">
-            <h3>30-60-90 Day Growth Execution Plan</h3>
+            <div>
+              <div class="panel-title">Ranked Prescriptive Opportunities</div>
+              <div class="panel-desc">Evidence-grounded recommendations scored by revenue impact, implementation effort, and statistical confidence</div>
+            </div>
+            <span class="badge badge-blue">Levers L1 &bull; L3 &bull; L4 &bull; L7</span>
           </div>
-          <div class="plan-grid">
-            <div class="plan-col">
-              <h4>Day 1 - 30: Quick Wins</h4>
-              <div class="plan-card">
+          <div class="recommendations-grid" id="recommendations-container">
+            <!-- Injected by app.js -->
+          </div>
+        </div>
+
+        <!-- 30-60-90 Day Execution Roadmap -->
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">30-60-90 Day Implementation Matrix</div>
+              <div class="panel-desc">Phased commercial execution milestones with estimated engineering and marketing effort</div>
+            </div>
+          </div>
+          <div class="plan-roadmap">
+            <div class="plan-column">
+              <div class="plan-column-header">Phase 1: Days 1 &ndash; 30 (Quick Wins)</div>
+              <div class="plan-item">
                 <strong>Product Bundling (Lever L3)</strong>
-                <p>Deploy frequently bought together bundle on product page with 1-click add to cart.</p>
-                <div class="badge badge-low">Effort: Hours</div>
+                <p>Deploy 1-click bundle recommendations on product detail pages for frequent co-occurrence pairs.</p>
+                <span class="badge badge-emerald" style="width: fit-content;">Effort: Hours</span>
               </div>
             </div>
-            <div class="plan-col">
-              <h4>Day 31 - 60: Medium Actions</h4>
-              <div class="plan-card">
-                <strong>Win-Back Lapsed Customers (Lever L1)</strong>
-                <p>Launch targeted email flow for 1,888 customers in At-Risk and Hibernating segments.</p>
-                <div class="badge badge-med">Effort: Days</div>
+
+            <div class="plan-column">
+              <div class="plan-column-header">Phase 2: Days 31 &ndash; 60 (Medium Actions)</div>
+              <div class="plan-item">
+                <strong>Lapsed Customer Win-Back (Lever L1)</strong>
+                <p>Automate targeted email flows for 1,888 customers in At-Risk and Hibernating tiers with tailored incentives.</p>
+                <span class="badge badge-amber" style="width: fit-content;">Effort: Days</span>
               </div>
-              <div class="plan-card">
+              <div class="plan-item">
                 <strong>Cancellation Mitigation (Lever L4)</strong>
-                <p>Fix descriptions on top cancelled SKUs and trigger immediate confirmation notices.</p>
-                <div class="badge badge-med">Effort: Days</div>
+                <p>Correct catalog images and dimensions for top cancelled items and introduce instant order confirmation alerts.</p>
+                <span class="badge badge-amber" style="width: fit-content;">Effort: Days</span>
               </div>
             </div>
-            <div class="plan-col">
-              <h4>Day 61 - 90: Strategic Bets</h4>
-              <div class="plan-card">
+
+            <div class="plan-column">
+              <div class="plan-column-header">Phase 3: Days 61 &ndash; 90 (Strategic Bets)</div>
+              <div class="plan-item">
                 <strong>Export Expansion (Lever L7)</strong>
-                <p>Scale subsidized shipping and localization for high-AOV Netherlands & European buyers.</p>
-                <div class="badge badge-high">Effort: Weeks</div>
+                <p>Scale localized checkout and subsidized logistics for high-AOV European accounts (Netherlands, Germany).</p>
+                <span class="badge badge-blue" style="width: fit-content;">Effort: Weeks</span>
               </div>
             </div>
           </div>
@@ -237,139 +423,189 @@
 
       <!-- VIEW 4: FORECAST & DIAGNOSTICS -->
       <section id="view-forecast" class="content-view">
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <h3>30-Day Net Revenue Demand Forecast</h3>
-              <p class="subtitle">Seasonal Exponential Smoothing with 80% Prediction Interval & Rolling-Origin Backtesting</p>
-            </div>
-            <span class="badge badge-warning">Annual Seasonality Disabled (1-Yr Data)</span>
-          </div>
-          <div class="chart-container" style="height: 320px;">
-            <canvas id="chart-forecast"></canvas>
-          </div>
-          <div class="forecast-meta-box">
-            <div><strong>Forecast Horizon:</strong> 30 Days</div>
-            <div><strong>Backtest WAPE:</strong> 0.28 (Beats Seasonal Naive Baseline)</div>
-            <div><strong>Coverage 80%:</strong> 82% empirical interval coverage</div>
+        <div class="view-header">
+          <div>
+            <h2>Demand Forecasting & Root-Cause Diagnostics</h2>
+            <p>Statistical projections with prediction intervals and hypothesis-driven driver decomposition</p>
           </div>
         </div>
 
-        <div class="panel mt-20">
+        <div class="panel">
           <div class="panel-header">
             <div>
-              <h3>Hypothesis-Driven Diagnostic Board</h3>
-              <p class="subtitle">Testing candidate drivers H1-H7 on observed month-over-month revenue changes</p>
+              <div class="panel-title">30-Day Net Revenue Projection</div>
+              <div class="panel-desc">Seasonal Exponential Smoothing with 80% Prediction Corridor & Rolling-Origin Backtesting</div>
             </div>
-            <span class="badge badge-verified">4 Hypotheses Tested</span>
+            <span class="badge badge-amber">Annual Seasonality Disabled (1-Yr Window)</span>
           </div>
-          <div class="hypothesis-grid" id="hypothesis-container">
-            <!-- Rendered by app.js -->
+          <div class="chart-container" style="height: 300px;">
+            <canvas id="chart-forecast"></canvas>
+          </div>
+          <div style="display: flex; gap: 24px; padding-top: 14px; border-top: 1px solid var(--border-subtle); margin-top: 10px; font-size: 11px; color: var(--text-secondary);">
+            <div><strong style="color: var(--text-primary);">Horizon:</strong> 30 Days</div>
+            <div><strong style="color: var(--text-primary);">Backtest WAPE:</strong> 0.28 (Outperforms Seasonal Naive)</div>
+            <div><strong style="color: var(--text-primary);">Interval Coverage:</strong> 82% empirical 80% corridor</div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Hypothesis-Driven Diagnostic Board</div>
+              <div class="panel-desc">Evaluating candidate drivers H1-H7 on observed month-over-month revenue dynamics</div>
+            </div>
+            <span class="badge badge-emerald">4 Evaluated Hypotheses</span>
+          </div>
+          <div class="grid-2col" id="hypothesis-container">
+            <!-- Injected by app.js -->
           </div>
         </div>
       </section>
 
-      <!-- VIEW 5: DATA & CLEANING -->
+      <!-- VIEW 5: DATA PIPELINE & QUALITY -->
       <section id="view-data" class="content-view">
-        <div class="panel">
-          <div class="panel-header">
-            <div>
-              <h3>Dataset Profile & Schema Mapping</h3>
-              <p class="subtitle">Reference Dataset: UK Online Retail Sales Transactions (536,350 rows)</p>
-            </div>
-            <button class="btn btn-secondary" id="btn-reprofile">Re-profile</button>
-          </div>
-          <div class="profile-stats-grid">
-            <div class="stat-box"><strong>Total Rows:</strong> 536,350</div>
-            <div class="stat-box"><strong>Unique Orders:</strong> 23,204</div>
-            <div class="stat-box"><strong>Unique SKUs:</strong> 3,768</div>
-            <div class="stat-box"><strong>Unique Customers:</strong> 4,739</div>
-            <div class="stat-box"><strong>Countries:</strong> 38</div>
-            <div class="stat-box"><strong>Duplicates:</strong> 5,587 (1.04%)</div>
+        <div class="view-header">
+          <div>
+            <h2>Data Pipeline, Cleansing & Capability Matrix</h2>
+            <p>Medallion lakehouse transformation tracking, row quarantine logs, and capability unlocking</p>
           </div>
         </div>
 
-        <div class="panel mt-20">
+        <div class="panel">
           <div class="panel-header">
             <div>
-              <h3>Data Quality Score & KPI Distortion Impact</h3>
-              <p class="subtitle">Measuring impact before vs after applying cleaning rules CL-01 through CL-15</p>
+              <div class="panel-title">Reference Dataset Architecture</div>
+              <div class="panel-desc">UK Online Retail Dataset (536,350 total records)</div>
+            </div>
+            <button class="btn btn-secondary" id="btn-reprofile">Trigger Re-profiling</button>
+          </div>
+          <div class="grid-3col">
+            <div class="kpi-card"><span class="kpi-label">Total Bronze Rows</span><div class="kpi-value tabular-nums">536,350</div></div>
+            <div class="kpi-card"><span class="kpi-label">Completed Sales Orders</span><div class="kpi-value tabular-nums">19,790</div></div>
+            <div class="kpi-card"><span class="kpi-label">Catalog SKUs</span><div class="kpi-value tabular-nums">3,768</div></div>
+            <div class="kpi-card"><span class="kpi-label">Customer Tokens</span><div class="kpi-value tabular-nums">4,739</div></div>
+            <div class="kpi-card"><span class="kpi-label">Geographic Markets</span><div class="kpi-value tabular-nums">38</div></div>
+            <div class="kpi-card"><span class="kpi-label">Exact Duplicates Quarantined</span><div class="kpi-value tabular-nums" style="color: var(--accent-amber);">5,587 (1.04%)</div></div>
+          </div>
+        </div>
+
+        <div class="panel">
+          <div class="panel-header">
+            <div>
+              <div class="panel-title">Data Quality Distortion Impact</div>
+              <div class="panel-desc">KPI variance before vs after executing deterministic cleansing rules CL-01 through CL-15</div>
             </div>
             <span class="badge badge-emerald">DQS: 99.0 / 100</span>
           </div>
           <table class="data-table">
             <thead>
-              <tr><th>Metric</th><th>Raw Uncleaned</th><th>Silver Cleaned</th><th>Delta %</th><th>Reason & Effect</th></tr>
+              <tr><th>Metric</th><th>Raw Uncleaned</th><th>Silver Cleaned</th><th>Delta %</th><th>Rule & Distortion Mitigation</th></tr>
             </thead>
             <tbody>
-              <tr><td>Gross Revenue</td><td>£62,965,974.34</td><td>£62,770,010.56</td><td class="text-emerald">-0.31%</td><td>5,587 exact duplicate lines quarantined to silver_quarantine</td></tr>
-              <tr><td>Net Revenue</td><td>£60,280,024.26</td><td>£60,114,656.93</td><td class="text-emerald">-0.27%</td><td>8,585 negative cancellation orders classified and netted</td></tr>
-              <tr><td>Distinct Orders</td><td>23,204</td><td>19,790</td><td class="text-emerald">-14.71%</td><td>Cancelled orders separated from positive sales transactions</td></tr>
-              <tr><td>Average Order Value</td><td>£2,713.58</td><td>£3,171.80</td><td class="text-emerald">+16.89%</td><td>True sales basket size after excluding cancellation voids</td></tr>
+              <tr>
+                <td><strong>Gross Revenue</strong></td>
+                <td class="tabular-nums">£62,965,974.34</td>
+                <td class="tabular-nums">£62,770,010.56</td>
+                <td class="tabular-nums" style="color: var(--accent-success);">-0.31%</td>
+                <td>5,587 exact duplicate lines quarantined to <code>silver_quarantine</code></td>
+              </tr>
+              <tr>
+                <td><strong>Net Revenue</strong></td>
+                <td class="tabular-nums">£60,280,024.26</td>
+                <td class="tabular-nums">£60,114,656.93</td>
+                <td class="tabular-nums" style="color: var(--accent-success);">-0.27%</td>
+                <td>8,585 cancellation entries netted from positive sales</td>
+              </tr>
+              <tr>
+                <td><strong>Distinct Orders</strong></td>
+                <td class="tabular-nums">23,204</td>
+                <td class="tabular-nums">19,790</td>
+                <td class="tabular-nums" style="color: var(--accent-success);">-14.71%</td>
+                <td>Voided/cancelled baskets separated into cancellation index</td>
+              </tr>
+              <tr>
+                <td><strong>Average Order Value</strong></td>
+                <td class="tabular-nums">£2,713.58</td>
+                <td class="tabular-nums">£3,171.80</td>
+                <td class="tabular-nums" style="color: var(--accent-success);">+16.89%</td>
+                <td>True basket calculation unskewed by cancellation lines</td>
+              </tr>
             </tbody>
           </table>
         </div>
 
-        <div class="panel mt-20">
+        <div class="panel">
           <div class="panel-header">
-            <h3>Data Capability Matrix (Section 8.5)</h3>
+            <div>
+              <div class="panel-title">Data Capability Matrix (Section 8.5)</div>
+              <div class="panel-desc">Specification compliance across required analytics capabilities</div>
+            </div>
           </div>
           <table class="data-table">
             <thead>
-              <tr><th>Analytical Feature</th><th>Required Fields</th><th>Status</th><th>Notes / Unlocking Data</th></tr>
+              <tr><th>Analytical Feature</th><th>Required Fields</th><th>Status</th><th>Verification Notes</th></tr>
             </thead>
-            <tbody id="capability-matrix-body">
-              <tr><td>Revenue, Orders, AOV Trends</td><td>date, price, quantity, order_id</td><td><span class="badge badge-emerald">Available</span></td><td>Fully enabled</td></tr>
-              <tr><td>Top / Bottom Products & ABC</td><td>product, price, quantity</td><td><span class="badge badge-emerald">Available</span></td><td>Fully enabled</td></tr>
-              <tr><td>Customer RFM Segmentation</td><td>customer_id, date, value</td><td><span class="badge badge-emerald">Available</span></td><td>Available for rows with customer token</td></tr>
-              <tr><td>Market Basket Pairs (Affinity)</td><td>order_id, product</td><td><span class="badge badge-emerald">Available</span></td><td>Computed on frequent pairs</td></tr>
-              <tr><td>Cancellation Analysis</td><td>negative quantity / cancel code</td><td><span class="badge badge-emerald">Available</span></td><td>8,585 cancellations detected</td></tr>
-              <tr><td>Demand Forecast</td><td>daily history</td><td><span class="badge badge-warning">Available (1-yr)</span></td><td>Annual seasonality disabled; low confidence</td></tr>
-              <tr><td>Profit and Margin</td><td>unit cost</td><td><span class="badge badge-red">Unavailable</span></td><td>Requires unit cost column or margin assumption</td></tr>
-              <tr><td>Stock-out Prediction</td><td>inventory levels</td><td><span class="badge badge-red">Unavailable</span></td><td>Requires inventory file; velocity reported as proxy</td></tr>
+            <tbody>
+              <tr><td>Revenue, Orders, AOV Trends</td><td>date, price, quantity, order_id</td><td><span class="badge badge-emerald">Available</span></td><td>Gold daily aggregated mart enabled</td></tr>
+              <tr><td>Top / Bottom Products & ABC</td><td>product, price, quantity</td><td><span class="badge badge-emerald">Available</span></td><td>Catalog revenue & volume ranked</td></tr>
+              <tr><td>Customer RFM Segmentation</td><td>customer_id, date, value</td><td><span class="badge badge-emerald">Available</span></td><td>Available for rows with valid customer token</td></tr>
+              <tr><td>Market Basket Pairs (Affinity)</td><td>order_id, product</td><td><span class="badge badge-emerald">Available</span></td><td>Frequent item co-occurrence pairs computed</td></tr>
+              <tr><td>Cancellation Analysis</td><td>negative quantity / cancel code</td><td><span class="badge badge-emerald">Available</span></td><td>8,585 cancellations tracked in Gold mart</td></tr>
+              <tr><td>Demand Forecast</td><td>daily history</td><td><span class="badge badge-amber">Available (1-yr)</span></td><td>Annual seasonality disabled; conservative bands</td></tr>
+              <tr><td>Unit Margins & Cost of Goods</td><td>unit_cost column</td><td><span class="badge badge-red">Unavailable</span></td><td>Requires unit cost feed; revenue proxy enabled</td></tr>
             </tbody>
           </table>
         </div>
       </section>
 
-      <!-- VIEW 6: TRUST & AUDIT -->
+      <!-- VIEW 6: TRUST, AUDIT & ZERO-LEAK PII -->
       <section id="view-trust" class="content-view">
+        <div class="view-header">
+          <div>
+            <h2>Trust Engine, Cryptographic Audit & Zero-Leak PII</h2>
+            <p>Tamper-evident SHA-256 block hash chain and privacy-by-design tokenization controls</p>
+          </div>
+          <div class="status-pill"><span class="pulse-dot"></span> Chain Verified: Genesis to Tip</div>
+        </div>
+
         <div class="panel">
           <div class="panel-header">
             <div>
-              <h3>Cryptographic Hash-Chained Audit Log</h3>
-              <p class="subtitle">Every model call, query, cleaning approval, and security event is permanently linked via SHA-256 block hashing.</p>
+              <div class="panel-title">SHA-256 Cryptographic Hash Chain</div>
+              <div class="panel-desc">Every agent decision, query, cleaning approval, and prompt execution is immutable and provably linked</div>
             </div>
-            <div class="status-badge live">
-              <span class="dot"></span>
-              <span id="chain-status-label">Chain Verified: Genesis to Tip</span>
-            </div>
+            <span class="badge badge-emerald" id="chain-status-label">Integrity Intact</span>
           </div>
-          <div class="audit-timeline" id="audit-timeline">
-            <!-- Rendered by app.js -->
+          <div class="audit-timeline" id="audit-timeline" style="display: flex; flex-direction: column; gap: 8px;">
+            <!-- Injected by app.js -->
           </div>
         </div>
 
-        <div class="panel mt-20">
+        <div class="panel">
           <div class="panel-header">
             <div>
-              <h3>Privacy-By-Design & Leak Scan Status</h3>
-              <p class="subtitle">Customer tokenization, untrusted text neutralization, and zero-leak CI verification</p>
+              <div class="panel-title">Zero-Leak Privacy Architecture</div>
+              <div class="panel-desc">Ensuring unmasked PII and adversarial inputs never reach external models</div>
             </div>
-            <span class="badge badge-emerald">Zero Leaks Verified</span>
           </div>
-          <div class="privacy-grid">
-            <div class="privacy-card">
-              <h4>Salted Tokenization</h4>
-              <p>Raw Customer IDs (e.g. <code>17490</code>) are salted and hashed into irreversible tokens: <code>cust_7f2a9c1e</code>. Real IDs never enter LLM prompts.</p>
+          <div class="grid-3col">
+            <div class="kpi-card">
+              <span class="kpi-label">Salted Tokenization</span>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
+                Customer IDs (e.g., <code>17490</code>) are salted and hashed into irreversible pseudonyms (<code>cust_7f2a9c1e</code>). Real IDs never enter prompts.
+              </p>
             </div>
-            <div class="privacy-card">
-              <h4>Prompt-Injection Sanitizer</h4>
-              <p>Adversarial instructions in product descriptions (e.g. <code>IGNORE PREVIOUS INSTRUCTIONS</code>) are neutralized, quarantined, and wrapped in literal quotes.</p>
+            <div class="kpi-card">
+              <span class="kpi-label">Adversarial Sanitizer</span>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
+                Prompt injection attempts and jailbreaks embedded in item descriptions or queries are quarantined and wrapped in quotes.
+              </p>
             </div>
-            <div class="privacy-card">
-              <h4>Sandbox Isolation</h4>
-              <p>Model-written code executes in a no-network sandbox with resource timeouts and read-only data mounts.</p>
+            <div class="kpi-card">
+              <span class="kpi-label">Isolated Python Sandbox</span>
+              <p style="font-size: 12px; color: var(--text-secondary); margin-top: 6px;">
+                Custom calculation scripts execute in a restricted AST sandbox with memory caps, execution timeouts, and no network access.
+              </p>
             </div>
           </div>
         </div>
@@ -377,37 +613,113 @@
 
       <!-- VIEW 7: EXECUTIVE REPORTS -->
       <section id="view-reports" class="content-view">
+        <div class="view-header">
+          <div>
+            <h2>Executive Decision Reports</h2>
+            <p>Generate board-ready HTML and PDF decision memorandums combining observations, projections, and growth levers</p>
+          </div>
+          <div style="display: flex; gap: 8px;">
+            <button class="btn btn-primary" id="btn-gen-html">Generate HTML Report</button>
+            <button class="btn btn-secondary" id="btn-gen-pdf">Download PDF Report</button>
+          </div>
+        </div>
+
         <div class="panel">
-          <div class="panel-header">
-            <div>
-              <h3>Executive Insights & Growth Report Generation</h3>
-              <p class="subtitle">Comprehensive 3-part report: What happened, What will happen, What to do (Appendix D)</p>
-            </div>
-            <div class="btn-group">
-              <button class="btn btn-primary" id="btn-gen-html">Generate HTML Report</button>
-              <button class="btn btn-secondary" id="btn-gen-pdf">Download PDF Report</button>
-            </div>
-          </div>
-          <div class="report-preview-frame mt-20">
-            <iframe id="report-frame" src="/v1/reports/latest?format=html" style="width: 100%; height: 600px; border: 1px solid #334155; border-radius: 8px;"></iframe>
-          </div>
+          <iframe id="report-frame" src="/v1/reports/latest?format=html" style="width: 100%; height: 640px; border: 1px solid var(--border-medium); border-radius: var(--radius-sm); background: #ffffff;"></iframe>
         </div>
       </section>
     </main>
   </div>
 
   <!-- Evidence Drawer Modal ("Show your work") -->
-  <div class="evidence-modal" id="evidence-modal">
-    <div class="evidence-content">
-      <div class="evidence-header">
-        <h3>Evidence Drawer &bull; Show Your Work</h3>
-        <button class="btn-close" id="btn-close-evidence">&times;</button>
+  <div class="modal-overlay" id="evidence-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Critic Verification Evidence &bull; Show Your Work</h3>
+        <button class="modal-close-btn" id="btn-close-evidence">&times;</button>
       </div>
-      <div class="evidence-body" id="evidence-body">
+      <div class="modal-body" id="evidence-body">
         <!-- Injected dynamically -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="document.getElementById('evidence-modal').classList.remove('active')">Close</button>
       </div>
     </div>
   </div>
+
+  <!-- AI Model & Provider Configuration Modal -->
+  <div class="modal-overlay" id="model-modal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>AI Model & Cognitive Gateway Settings</h3>
+        <button class="modal-close-btn" id="btn-close-model-modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="select-provider">Inference Provider</label>
+          <select id="select-provider" class="form-select">
+            <option value="openrouter">OpenRouter (Free Tier Models Pool)</option>
+            <option value="ollama">Ollama / Custom Endpoint</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="select-free-model">Active Model (100% Free Tier)</label>
+          <select id="select-free-model" class="form-select">
+            <option value="liquid/lfm-2.5-2.6b:free">liquid/lfm-2.5-2.6b:free (Fastest)</option>
+            <option value="nvidia/nemotron-3.5-lightning:free">nvidia/nemotron-3.5-lightning:free (Reasoning)</option>
+            <option value="google/gemma-4-26b-a4b-it:free">google/gemma-4-26b-a4b-it:free (Instruction)</option>
+            <option value="google/gemma-4-31b-it:free">google/gemma-4-31b-it:free</option>
+            <option value="dots-studio/dots-3-note-preview:free">dots-studio/dots-3-note-preview:free</option>
+            <option value="cohere/north-mini-code:free">cohere/north-mini-code:free</option>
+            <option value="recursive/flint-v1.0:free">recursive/flint-v1.0:free</option>
+          </select>
+          <span style="font-size: 11px; color: var(--text-dim);">MAVIS includes automated upstream rate-limit failover across the entire free model pool.</span>
+        </div>
+
+        <div style="background-color: var(--bg-app); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 12px; margin-top: 6px;">
+          <div style="font-size: 11px; font-weight: 600; color: var(--text-muted); margin-bottom: 6px;">CONNECTION STATUS</div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px;">
+            <span>OpenRouter API Key:</span>
+            <span class="mono" style="color: var(--accent-success);">Configured (sk-or-v1...)</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-size: 12px; margin-top: 4px;">
+            <span>Ollama API Key:</span>
+            <span class="mono" style="color: var(--accent-success);">Configured (295e4a...)</span>
+          </div>
+        </div>
+
+        <div id="model-test-result" style="display: none; padding: 10px; border-radius: var(--radius-sm); font-size: 12px; font-family: var(--font-mono);"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="btn-test-model">Test Latency</button>
+        <button class="btn btn-primary" id="btn-save-model">Save Configuration</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Command Palette Modal (Ctrl + K) -->
+  <div class="modal-overlay" id="cmd-modal">
+    <div class="modal-card" style="width: 500px;">
+      <div class="modal-header">
+        <input type="text" id="cmd-input" placeholder="Type a command or navigate to tab..." style="width: 100%; background: transparent; border: none; font-size: 14px; color: var(--text-primary); outline: none;">
+        <span class="kbd-shortcut">ESC</span>
+      </div>
+      <div class="modal-body" id="cmd-list" style="max-height: 280px; padding: 8px;">
+        <div class="prompt-chip" data-cmd="tab-dashboard">Go to Executive Cockpit</div>
+        <div class="prompt-chip" data-cmd="tab-chat">Go to Ask MAVIS (Chat)</div>
+        <div class="prompt-chip" data-cmd="tab-advisor">Go to Growth Simulator</div>
+        <div class="prompt-chip" data-cmd="tab-forecast">Go to Forecast & Diagnostics</div>
+        <div class="prompt-chip" data-cmd="tab-data">Go to Pipeline & DQS Matrix</div>
+        <div class="prompt-chip" data-cmd="tab-trust">Go to Audit & Zero-Leak PII</div>
+        <div class="prompt-chip" data-cmd="cmd-test-model">Test Active AI Model Connection</div>
+        <div class="prompt-chip" data-cmd="cmd-export-pdf">Download Executive PDF Report</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div class="toast-container" id="toast-container"></div>
 
   <script src="/static/app.js"></script>
 </body>

@@ -10,6 +10,12 @@ class Settings(BaseSettings):
     ANTHROPIC_API_KEY: str = ""
     MAVIS_MODEL: str = "claude-3-5-sonnet-20241022"
 
+    OPENROUTER_API_KEY: str = ""
+    OPENROUTER_MODEL: str = "liquid/lfm-2.5-2.6b:free"
+    OLLAMA_API_KEY: str = ""
+    OLLAMA_BASE_URL: str = "http://localhost:11434"
+    LLM_PROVIDER: str = "openrouter"  # "openrouter" or "ollama"
+
     # Runtime Budgets
     MAVIS_MAX_STEPS: int = 12
     MAVIS_MAX_TOKENS: int = 60000
