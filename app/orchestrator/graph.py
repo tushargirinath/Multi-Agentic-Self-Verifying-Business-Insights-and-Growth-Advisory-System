@@ -17,7 +17,13 @@ class Orchestrator:
     """Coordinates specialist agents, enforces budgets, gates answers through Critic, and logs all steps."""
 
     def __init__(self, duckdb_conn: Optional[duckdb.DuckDBPyConnection] = None):
-        self.con = duckdb_conn or duckdb.connect(settings.duckdb_path)
+        if duckdb_conn:
+            self.con = duckdb_conn
+        else:
+            try:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=False)
+            except Exception:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=True)
         self.analyst = AnalystAgent(self.con)
         self.critic = CriticAgent(self.con)
 

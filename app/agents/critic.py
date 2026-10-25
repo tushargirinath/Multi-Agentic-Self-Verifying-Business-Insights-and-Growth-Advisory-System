@@ -12,7 +12,13 @@ class CriticAgent:
     """
 
     def __init__(self, duckdb_conn: Optional[duckdb.DuckDBPyConnection] = None, tolerance: float = settings.MAVIS_CRITIC_TOLERANCE):
-        self.con = duckdb_conn or duckdb.connect(settings.duckdb_path)
+        if duckdb_conn:
+            self.con = duckdb_conn
+        else:
+            try:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=False)
+            except Exception:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=True)
         self.tolerance = tolerance
 
     def verify_answer(

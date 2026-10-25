@@ -4,13 +4,20 @@ from typing import Dict, Any, List, Optional
 import duckdb
 from app.config import settings
 from app.semantic.compiler import SemanticCompiler
+from app.llm.client import llm_client
 
 
 class AnalystAgent:
     """Specialist analyst agent that maps questions to semantic metrics, executes SQL, and formats answers."""
 
     def __init__(self, duckdb_conn: Optional[duckdb.DuckDBPyConnection] = None):
-        self.con = duckdb_conn or duckdb.connect(settings.duckdb_path)
+        if duckdb_conn:
+            self.con = duckdb_conn
+        else:
+            try:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=False)
+            except Exception:
+                self.con = duckdb.connect(settings.duckdb_path, read_only=True)
         self.compiler = SemanticCompiler()
 
     def answer_question(
@@ -322,6 +329,51 @@ class AnalystAgent:
                 "assumptions": ["currency=GBP", "min_orders=20", "cancellations excluded"]
             }
 
-        # Default general fallback
+        # Open-ended Business / Strategic question handling via LLM
         else:
+            try:
+                base_sql = f"""
+                    SELECT 
+                        ROUND(SUM(line_total) FILTER (WHERE row_class = 'sale'), 2) as gross_rev,
+                        ROUND(SUM(line_total) FILTER (WHERE row_class IN ('sale', 'cancellation')), 2) as net_rev,
+                        COUNT(DISTINCT order_id) FILTER (WHERE row_class = 'sale') as orders_cnt
+                    FROM fact_order_lines 
+                    WHERE dataset_id = '{dataset_id}';
+                """
+                row = self.con.execute(base_sql).fetchone()
+                gross_rev = float(row[0] or 0.0)
+                net_rev = float(row[1] or 0.0)
+                orders_cnt = int(row[2] or 0)
+
+                prompt = f"""You are MAVIS, an elite commercial business advisor.
+Verified dataset facts:
+- Total Gross Revenue: £{gross_rev:,.2f}
+- Net Revenue (post-cancellations): £{net_rev:,.2f}
+- Completed Sales Orders: {orders_cnt:,}
+
+User question: "{question}"
+
+Provide a concise, executive-level business advisory response (2-3 sentences). Strictly respect verified facts. Do not invent any numbers."""
+
+                llm_res = llm_client.generate(prompt, max_tokens=200)
+                if llm_res.get("success") and llm_res.get("content"):
+                    explanation = llm_res["content"].strip()
+                    clean_title = question.replace('"', '').replace("'", "")[:50]
+                    return {
+                        "headline": f"Advisory Analysis for: {clean_title}",
+                        "explanation": explanation,
+                        "queries": [{"id": "q_executive_context", "sql": base_sql.strip()}],
+                        "evidence": {
+                            "gross_revenue": gross_rev,
+                            "net_revenue": net_rev,
+                            "orders": orders_cnt
+                        },
+                        "numbers": {
+                            "gross_revenue": gross_rev,
+                            "net_revenue": net_rev
+                        },
+                        "assumptions": ["grounded in verified Gold marts", f"synthesized by {llm_res.get('model')}"]
+                    }
+            except Exception:
+                pass
             return self.answer_question("total revenue", dataset_id=dataset_id)
