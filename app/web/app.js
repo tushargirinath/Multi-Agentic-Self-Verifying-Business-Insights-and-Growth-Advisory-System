@@ -100,24 +100,24 @@ function initDashboardCharts() {
           {
             label: 'Gross Turnover (£)',
             data: [4210000, 3850000, 3420000, 4390000, 3780000, 4820000, 4490000, 4710000, 4650000, 5920000, 6840000, 8310000, 3380000],
-            borderColor: '#3b82f6',
-            backgroundColor: 'rgba(59, 130, 246, 0.08)',
+            borderColor: '#2563eb',
+            backgroundColor: 'rgba(37, 99, 235, 0.06)',
             borderWidth: 2,
             fill: true,
             tension: 0.25,
             pointRadius: 3,
-            pointBackgroundColor: '#3b82f6'
+            pointBackgroundColor: '#2563eb'
           },
           {
-            label: 'Net Realized Revenue (£)',
+            label: 'Net Realized Profit / Revenue (£)',
             data: [4030000, 3680000, 3280000, 4190000, 3610000, 4620000, 4300000, 4520000, 4460000, 5680000, 6550000, 7950000, 3244656],
-            borderColor: '#10b981',
+            borderColor: '#059669',
             borderWidth: 2,
             borderDash: [4, 4],
             fill: false,
             tension: 0.25,
             pointRadius: 3,
-            pointBackgroundColor: '#10b981'
+            pointBackgroundColor: '#059669'
           }
         ]
       },
@@ -127,12 +127,12 @@ function initDashboardCharts() {
         plugins: {
           legend: {
             position: 'top',
-            labels: { color: '#94a3b8', font: { family: 'Inter', size: 11 }, boxWidth: 12 }
+            labels: { color: '#334155', font: { family: 'Inter', size: 11, weight: '600' }, boxWidth: 12 }
           }
         },
         scales: {
-          x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
-          y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } }
+          x: { grid: { color: '#e2e8f0' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
+          y: { grid: { color: '#e2e8f0' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } }
         }
       }
     });
@@ -154,8 +154,8 @@ function initDashboardCharts() {
         datasets: [{
           label: 'Revenue (£)',
           data: [1002718, 921400, 843200, 781500, 694000],
-          backgroundColor: '#1d4ed8',
-          hoverBackgroundColor: '#2563eb',
+          backgroundColor: '#2563eb',
+          hoverBackgroundColor: '#1d4ed8',
           borderRadius: 4
         }]
       },
@@ -165,8 +165,8 @@ function initDashboardCharts() {
         indexAxis: 'y',
         plugins: { legend: { display: false } },
         scales: {
-          x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
-          y: { grid: { display: false }, ticks: { color: '#f8fafc', font: { family: 'Inter', size: 11 } } }
+          x: { grid: { color: '#e2e8f0' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
+          y: { grid: { display: false }, ticks: { color: '#0f172a', font: { family: 'Inter', size: 11, weight: '500' } } }
         }
       }
     });
@@ -465,19 +465,19 @@ async function initForecastAndDiagnostics() {
             label: 'Upper 80% Bound',
             data: [195000, 210000, 218000, 230000, 242000, 255000, 270000],
             borderColor: 'transparent',
-            backgroundColor: 'rgba(59, 130, 246, 0.1)',
+            backgroundColor: 'rgba(37, 99, 235, 0.08)',
             fill: '+1',
             tension: 0.3
           },
           {
             label: 'Forecast Point Estimate (£)',
             data: [178000, 186000, 192000, 204000, 212000, 224000, 236000],
-            borderColor: '#3b82f6',
+            borderColor: '#2563eb',
             backgroundColor: 'transparent',
             borderWidth: 2,
             tension: 0.3,
             pointRadius: 4,
-            pointBackgroundColor: '#3b82f6'
+            pointBackgroundColor: '#2563eb'
           },
           {
             label: 'Lower 80% Bound',
@@ -495,12 +495,12 @@ async function initForecastAndDiagnostics() {
         plugins: {
           legend: {
             position: 'top',
-            labels: { color: '#94a3b8', font: { family: 'Inter', size: 11 }, filter: item => item.text !== 'Upper 80% Bound' && item.text !== 'Lower 80% Bound' }
+            labels: { color: '#334155', font: { family: 'Inter', size: 11 }, filter: item => item.text !== 'Upper 80% Bound' && item.text !== 'Lower 80% Bound' }
           }
         },
         scales: {
-          x: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
-          y: { grid: { color: '#1e293b' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } }
+          x: { grid: { color: '#e2e8f0' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } },
+          y: { grid: { color: '#e2e8f0' }, ticks: { color: '#64748b', font: { family: 'JetBrains Mono', size: 10 } } }
         }
       }
     });
