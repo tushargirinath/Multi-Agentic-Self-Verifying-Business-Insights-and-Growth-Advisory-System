@@ -106,8 +106,12 @@ app.mount("/static", StaticFiles(directory="app/web"), name="static")
 
 @app.get("/")
 def serve_index():
-    """Serve modern interactive web UI."""
-    return FileResponse("app/web/index.html")
+    """Serve modern interactive web UI with no-cache headers."""
+    resp = FileResponse("app/web/index.html")
+    resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    resp.headers["Pragma"] = "no-cache"
+    resp.headers["Expires"] = "0"
+    return resp
 
 @app.get("/health")
 def health_check():
