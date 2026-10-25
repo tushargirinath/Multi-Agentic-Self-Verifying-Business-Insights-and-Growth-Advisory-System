@@ -356,21 +356,22 @@ def create_report(req: ReportRequest):
 
 @app.get("/v1/reports/{report_id}")
 def download_report(report_id: str, format: str = "html"):
-    """Download generated HTML or PDF report."""
+    """Download generated HTML or PDF report with cache-busting headers."""
     ext = "pdf" if format.lower() == "pdf" else "html"
     file_path = Path("data/reports") / f"{report_id}.{ext}"
-    if not file_path.exists():
-        # Fallback to default report if specific ID is not on disk
-        file_path = Path("data") / f"mavis_report.{ext}"
-        if not file_path.exists():
-            rep_data = report_agent.generate_report_data("ds_reference")
-            if ext == "pdf":
-                report_agent.render_pdf_report(rep_data, str(file_path))
-            else:
-                report_agent.render_html_report(rep_data, str(file_path))
+    
+    # Always generate fresh report for 'latest' or when missing
+    if report_id == "latest" or not file_path.exists():
+        rep_data = report_agent.generate_report_data("ds_reference")
+        if ext == "pdf":
+            report_agent.render_pdf_report(rep_data, str(file_path))
+        else:
+            report_agent.render_html_report(rep_data, str(file_path))
 
     media_type = "application/pdf" if ext == "pdf" else "text/html"
-    return FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
+    resp = FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
+    resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
+    return resp
 
 
 @app.get("/v1/audit")
