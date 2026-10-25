@@ -8,7 +8,7 @@ from pathlib import Path
 from typing import Dict, Any, List, Optional
 from fastapi import FastAPI, UploadFile, File, Form, HTTPException, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, HTMLResponse
 from pydantic import BaseModel
 
 from app.config import settings
@@ -346,12 +346,30 @@ def create_report(req: ReportRequest):
 
     audit_logger.log_event("report_agent", "generate_report", {"report_id": report_id, "format": req.format})
 
+    download_link = f"/v1/reports/{report_id}?format={req.format}&download=true" if req.format.lower() == "pdf" else f"/v1/reports/{report_id}?format=html"
     return {
         "report_id": report_id,
         "format": req.format,
         "path": file_path,
-        "download_url": f"/v1/reports/{report_id}?format={req.format}"
+        "download_url": download_link
     }
+
+
+@app.get("/v1/reports/view")
+def view_report_inline(dataset_id: str = "ds_reference"):
+    """Render and serve HTML executive report strictly inline without attachment headers."""
+    file_path = Path("data/reports") / "mavis_report_inline.html"
+    rep_data = report_agent.generate_report_data(dataset_id)
+    report_agent.render_html_report(rep_data, str(file_path))
+    content = file_path.read_text(encoding="utf-8")
+    return HTMLResponse(
+        content=content,
+        status_code=200,
+        headers={
+            "Content-Disposition": "inline",
+            "Cache-Control": "no-cache, no-store, must-revalidate"
+        }
+    )
 
 
 @app.get("/v1/reports/{report_id}")
@@ -368,15 +386,21 @@ def download_report(report_id: str, format: str = "html", download: bool = False
         else:
             report_agent.render_html_report(rep_data, str(file_path))
 
-    media_type = "application/pdf" if ext == "pdf" else "text/html; charset=utf-8"
-    
-    # Only force file download attachment if explicitly requested via download=True
-    if download:
-        resp = FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
-    else:
-        resp = FileResponse(path=str(file_path), media_type=media_type)
-        resp.headers["Content-Disposition"] = "inline"
+    # For HTML report view (not forced download), return direct HTMLResponse
+    if ext == "html" and not download:
+        content = file_path.read_text(encoding="utf-8")
+        return HTMLResponse(
+            content=content,
+            status_code=200,
+            headers={
+                "Content-Disposition": "inline",
+                "Cache-Control": "no-cache, no-store, must-revalidate"
+            }
+        )
 
+    # For PDF or explicit download requests, serve as file attachment
+    media_type = "application/pdf" if ext == "pdf" else "text/html; charset=utf-8"
+    resp = FileResponse(path=str(file_path), media_type=media_type, filename=f"mavis_report_{report_id}.{ext}")
     resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     return resp
 

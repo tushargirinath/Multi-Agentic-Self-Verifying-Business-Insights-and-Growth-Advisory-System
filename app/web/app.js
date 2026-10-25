@@ -63,6 +63,13 @@ function initNavigation() {
         breadcrumbEl.textContent = titles[tab];
       }
       activeTab = tab;
+
+      if (tab === 'reports') {
+        const frame = document.getElementById('report-frame');
+        if (frame && (frame.src === 'about:blank' || !frame.src || frame.src.endsWith('about:blank'))) {
+          frame.src = '/v1/reports/view?format=html';
+        }
+      }
     });
   });
 
