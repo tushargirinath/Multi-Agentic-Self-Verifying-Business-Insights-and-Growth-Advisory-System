@@ -105,8 +105,11 @@ from fastapi.staticfiles import StaticFiles
 app.mount("/static", StaticFiles(directory="app/web"), name="static")
 
 @app.get("/")
+@app.get("/app")
+@app.get("/cockpit")
+@app.get("/dashboard")
 def serve_index():
-    """Serve modern interactive web UI with no-cache headers."""
+    """Serve modern interactive web UI with strict no-cache headers."""
     resp = FileResponse("app/web/index.html")
     resp.headers["Cache-Control"] = "no-cache, no-store, must-revalidate"
     resp.headers["Pragma"] = "no-cache"
